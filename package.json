@@ -2,7 +2,7 @@
   "name": "teleport-slides-template",
   "version": "0.0.0",
   "description": "A template for exporting components as slides",
-  "main": "index.js",
+  "author":"teleportHQ",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.3",

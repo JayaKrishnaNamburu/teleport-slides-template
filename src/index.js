@@ -12,12 +12,15 @@ const App = () => {
 	const progress = (slide/slides.length)*100
 
 	const handleKeyDown = (e) => {
-		e.preventDefault();
-		if (e.key === 'ArrowRight' && slide < slides.length ) {
+		const UP = Boolean(e.key === 'ArrowRight' || e.key === 'PageUp')
+		const DOWN = Boolean(e.key === 'ArrowLeft' || e.key === 'PageDown')
+		if (UP && slide < slides.length ) {
+			e.preventDefault();
 			setSlide(slide + 1)
 		}
 		
-		if (e.key === 'ArrowLeft' && (slide > 1 && slide <= slides.length)) {
+		if (DOWN && (slide > 1 && slide <= slides.length)) {
+			e.preventDefault();
 			setSlide(slide - 1)
 		}
 	}
