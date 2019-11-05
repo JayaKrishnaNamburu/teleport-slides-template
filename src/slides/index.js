@@ -1,8 +1,8 @@
-import React from 'react'
 import One from './one'
+import Two from './two'
 
-const slides = [
-	<One />
-]
 
-export default slides
+export {
+	One,
+	Two
+}

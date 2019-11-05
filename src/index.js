@@ -1,7 +1,11 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import ReactDOM from 'react-dom'
-import slides from './slides'
+import * as files from './slides'
 import styles from './styles.module.css'
+
+const slides = Object.keys(files)
+
+const RenderSlide = ({ component }) => component()
 
 const App = () => {
 	const [slide, setSlide] = useState(1)
@@ -24,13 +28,13 @@ const App = () => {
 			document.removeEventListener('keydown', handleKeyDown)
 		}
 	}, [slide])
-
+	
 	return (
 		<Fragment>
-		{slides[slide - 1]}
-		<div className={styles.slider}>
-			<span className={styles.progress} style={{ width: `${progress}%`}}></span>
-		</div>
+			<RenderSlide component={files[slides[slide - 1]]}/>
+			<div className={styles.slider}>
+				<span className={styles.progress} style={{ width: `${progress}%`}}></span>
+			</div>
 		</Fragment>
 	)
 }
